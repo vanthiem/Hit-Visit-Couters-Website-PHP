@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+  <title>PHP Script - Website Mini-Traffic</title>
+</head>
+<body>
+<center><h2>Script Website Mini-Traffic</h2></center><br />
+This is a PHP script for counting and displaying simple data of web site traffic. Records and displays site visits, unique visitors in the current and previous day, and number of online visitors in the last 60 seconds; as well as the top visits, visitors and record of online visitors, also, the IP of the current visitor.<br /><br />
+A demo of this script it is on this page -&gt; <a href="http://coursesweb.net/php-mysql/php-script-mini-traffic-site_s2">PHP Script Website Mini-Traffic</a><br /><br />
+The script is created with PHP. The traffic data can be saved in a text file on the server, or into a MySQL database (using PDO).<br/>
+This script not records the accesses of bots engines (<i>Googlebot, alexa, crawler, Gigabot, msn, ..., and others, total of 170 bots</i>), and it can be included in both .php and .html files (but the server must run PHP).<br />
+ &bull; By default, the script is set to save data in text file, in the "minitrafic.txt" file (in the "minitraff/" folder).<br/>
+
+<h4>Installation</h4>
+- Copy the "<b>minitrafic.php</b>" file, and the "<b>minitraff</b>" directory on the server, in the same folder where you have the file in which you want to include this script.<br /><br/>
+ 1. If you want to save traffic data in text file (in the "minitrafic.txt" file), give write permissions to "minitrafic.txt" (CHMOD 0777, or CHMOD 0755); because the PHP must have write permissions in the "minitrafic.txt" file.<br/><br/>
+ 2. If you want to save traffic data in MySQL database:
+ <blockquote>a) Open the "minitrafic.php" file, and change the '<b>file</b>' value of the variable <b>$savein</b> to '<b>mysql</b>' (at line 3), to be like this:
+<pre style="margin:15px 20px;background:#f0f1fe;color:#0100da;font-size:16px;">$savein = 'mysql';</pre>
+ b) Add your data for connecting to MySQL database, in these lines of code (in "minitrafic.php"):
+<pre style="margin:15px 20px;background:#f0f1fe;color:#0100da;font-size:16px;">protected $hostdb = 'localhost';
+protected $namedb = 'database_name';
+protected $userdb = 'user_name';
+protected $passdb = 'password';</pre>
+ c) Then access the "<b>minitrafic.php</b>" in your browser, with <b>traffic=createtable</b> in URL address, to create the table in MySQL database.
+<blockquote>For example, access: &nbsp; <b><i style="color:#0001da;font-size:16px;">http://domain.com/minitrafic.php?traffic=createtable</i></b></blockquote></blockquote><br/>
+ 1. If you include the script into a .php file, add this code at the beginning of that php file:
+<pre style="margin:15px 20px;background:#f0f1fe;color:#0100da;">include('minitrafic.php');</pre>
+ - Then, in the place where you want to display the traffic data, add this php code:
+<pre style="margin:15px 20px 35px 20px;background:#f0f1fe;color:#0100da;font-size:16px;">&lt;?php
+echo $html_trafic;
+?&gt;</pre>
+ 2. If you want to include the script into a .html file, add this code in that HTML, in the place where the traffic data will be displayed:
+<pre style="margin:15px 20px 35px 20px;background:#f0f1fe;color:#0100da;font-size:16px;">&lt;script type=&quot;text/javascript&quot; src=&quot;minitrafic.php?add=minitrafic&quot;&gt;&lt;/script&gt;</pre>
+ 3. In the &lt;head&gt; zone of the HTML document add this CSS styles (or into a external .css file). In this code you can add / edit CSS properties to style the HTML code with traffic data:
+<pre style="margin:15px 20px 35px 20px;background:#f0f1fe;color:#0100da;font-size:16px;">&lt;style type=&quot;text/css&quot;&gt;
+#traff{
+ position:relative;
+ width:13em;
+ margin-top:1em;
+ background-color:#edeffe;
+ border:2px solid #f8feff;
+ text-align:left;
+ padding:.15em .15em .15em .4em;
+ box-shadow:.2em .22em .24em #a0a0ed;
+ -webkit-box-shadow:.2em .22em .24em #a0a0ed;
+ -moz-border-radius:.8em;
+ -webkit-border-radius:.8em;
+ -khtml-border-radius:.8em;border-radius:.8em;
+}
+#traff .traf{
+ position:relative;
+ margin:4px 1px 2px 1px;
+ font-weight:800;
+ text-align:center;
+}
+#traff .traf sup, #f_sub sup{
+ font-weight:normal;
+ font-style:italic;
+}
+#traff .su { text-decoration: underline; }
+#traff #dtnow { color:blue; }
+&lt;/style&gt;</pre>
+ 
+The files "test.php" and "test.html" are for test, to see how to include this script in .php and .html file.<br/><br/>
+It was succesfully tested on localhost (with XAMPP), and on the websites: <a href="http://www.marplo.net" title="Courses Games Anime">www.marplo.net</a> , with Mozilla Firefox, Internet Explorer, Google Chrome, and Opera.<br /><br/>
+ - <b>This script is Free, <u>without assistance</u>, you can use it and modify how you want.</b>
+<br /><br /><br />
+<em>Have Good Life,<br />
+Marius</em>
+<br/><br/>
+</body>
+</html>
